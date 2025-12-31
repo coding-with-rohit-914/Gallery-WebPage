@@ -1,107 +1,470 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-    <title>Gallery Page</title>
-    <style>
-           .a{
-            text-align: center;
-            color: orange;
-           }
-
-           .b{
-            margin: 40px 50px; 
-           }
-
-           .c{
-            float: right;
-           }
-           .row{
-            justify-content: space-between;
-            margin-top: 120px;
-           }
-    </style>
+    <title>Nature Beauty | Explore Gallery</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="container c1">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-mountain mr-2"></i>Nature Beauty
+            </a>
 
-        <div class="row" r1>
-            <div class="offset-md-3 col-md-6" text-center cl1>
-                <h1 class="a">Nature Gallery</h1>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon" style="color: white; filter: invert(1);">☰</span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto align-items-center">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                            <i class="fas fa-moon" id="themeIcon"></i>
+                        </button>
+                    </li>
+                </ul>
             </div>
         </div>
+    </nav>
 
-        <div class="row" r2>
-            <div class="col-md-4 my-2">
-                <img width="80%" height="80%" src="https://www.format.com/wp-content/uploads/symmetrical_clouds_reflection_in_water.jpg">
+    <!-- Main Content -->
+    <main id="home">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container text-center">
+                <h1 class="gallery-title fade-in-up">Discover Nature's Wonders</h1>
+                <p class="gallery-subtitle fade-in-up stagger-delay-1">
+                    Explore breathtaking landscapes, majestic mountains, and serene waters from around the world.
+                    Each image tells a unique story of Earth's natural beauty.
+                </p>
+                <button class="btn btn-primary-custom fade-in-up stagger-delay-2" onclick="smoothScroll('#gallery')">
+                    <i class="fas fa-images mr-2"></i>View Gallery
+                </button>
             </div>
+        </section>
 
-            <div class="col-md-4 my-2">
-                <img width="80%" height="80%" src="https://images.unsplash.com/photo-1596550782892-01e5f0229ce7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGJlYXV0aWZ1bCUyMG5hdHVyZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80">
+        <!-- Gallery Section -->
+        <section class="gallery-container" id="gallery">
+            <div class="container">
+                <h2 class="section-title text-center mb-5" id="gallery">Gallery</h2>
+                <div class="row" id="galleryGrid">
+                    <!-- Gallery images will be loaded here by JavaScript -->
+                </div>
             </div>
+        </section>
 
-            <div class="col-md-4 my-2">
-                <img width="80%" height="80%" src="https://images.unsplash.com/photo-1621157281974-e926449624e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bmF0dXJlJTIwZ3JlZW58ZW58MHx8MHx8fDA%3D&w=1000&q=80">
+        <!-- Contact Section -->
+        <section class="contact-container" id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 mb-5 mb-lg-0">
+                        <div class="content-card">
+                            <h2 class="content-title">Get In Touch</h2>
+
+                            <div class="form-field">
+                                <label for="fastName">Fast Name</label>
+                                <input type="text" id="fastName" placeholder="Entry your first name">
+                            </div>
+
+                            <div class="form-field">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName" placeholder="Entry your last name">
+                            </div>
+
+                            <div class="form-field">
+                                <label for="mobileNumber">Mobile Number</label>
+                                <input type="tel" id="mobileNumber" placeholder="Enter 'Display mobile number'">
+                            </div>
+
+                            <div class="form-field">
+                                <label for="sendAddress">Send Address</label>
+                                <input type="email" id="sendAddress" placeholder="Entry your email">
+                            </div>
+
+                            <div class="form-field">
+                                <label for="yourMessage">Your Message</label>
+                                <textarea id="yourMessage" rows="4"
+                                    placeholder="Let us start your re-testing list."></textarea>
+                            </div>
+
+                            <div class="divider"></div>
+
+                            <div class="button-group">
+                                <button class="btn btn-primary-custom">Send Message</button>
+                                <button class="btn btn-secondary-custom">Clear Form</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <!-- Merged Location and Gallery Section -->
+                        <div class="content-card">
+                            <h3 class="content-title">
+                                <i class="fas fa-map-marker-alt"></i> Our Location
+                            </h3>
+                            <p class="content-text">
+                                <strong>Yewalewadi, Pune, MH, 411048, India.</strong>
+                            </p>
+                            <p class="content-text">
+                                Visit our gallery in the heart of Pune to experience nature's beauty in person.
+                                We celebrate the extraordinary beauty of our planet through stunning photography and
+                                immersive experiences.
+                            </p>
+                            <div class="contact-info-item">
+                                <h4 class="contact-info-title">Gallery Hours</h4>
+                                <p class="contact-info-text">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                                <p class="contact-info-text">Saturday: 10:00 AM - 4:00 PM</p>
+                                <p class="contact-info-text">Sunday: Closed</p>
+                            </div>
+                        </div>
+
+                        <!-- Merged Email and Call Section -->
+                        <div class="combined-contact-info">
+                            <h3 class="combined-contact-header">
+                                <i class="fas fa-address-card"></i> Contact Info
+                            </h3>
+                            <div class="contact-grid">
+                                <div class="contact-item">
+                                    <p>Contact us for inquiries about our photography services, gallery visits, or
+                                        partnership opportunities. & Reach out to our team during business hours (9 AM -
+                                        6 PM, Monday to Saturday):</p>
+                                    <ul class="contact-info-list" style="margin-top: 15px;">
+                                        <li><strong>Email:</strong> contact@naturegallery.com</li>
+                                        <li><strong>Phone:</strong> +91 1234567890</li>
+                                        <li><strong>Phone:</strong> +91 0987654321</li>
+                                        <li><strong>Support:</strong> support@naturegallery.com</li>
+                                        <li><strong>Alternate:</strong> +91 1029384756</li>
+                                    </ul>
+                                    <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 15px;">
+                                        <strong>For international calls:</strong> +1-234-567-8900
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section (replacing Nature Gallery above footer) -->
+        <section class="map-section">
+            <div class="container">
+                <div class="map-container">
+                    <div class="map-iframe-container">
+                        <iframe class="map-iframe"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2715.8162114631723!2d73.90446709999999!3d18.4208441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2ebbdbac1a4f9%3A0x8b1ee018dc5d8fee!2sPune%20City%2C%20Maharashtra%20411048!5e1!3m2!1sen!2sin!4v1767187761053!5m2!1sen!2sin"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" style="background: var(--gradient-primary); margin-top: 0; padding: 50px 0 30px;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <h3 class="footer-title" style="color: white; margin-bottom: 15px; font-size: 1.8rem;">Connect With
+                        Us</h3>
+                    <p class="footer-text" style="color: rgba(255, 255, 255, 0.9); font-size: 1.1rem;">
+                        Follow our journey as we explore & capture the world's natural wonders.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" aria-label="Instagram" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" aria-label="Twitter" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" aria-label="Pinterest" title="Pinterest">
+                            <i class="fab fa-pinterest-p"></i>
+                        </a>
+                        <a href="#" aria-label="YouTube" title="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <p class="copyright"
+                        style="color: rgba(255, 255, 255, 0.8); text-align: center; padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.1); margin-top: 30px; font-size: 1rem;">
+                        &copy; 2026 Nature Gallery. All rights reserved. | Designed with <i class="fas fa-heart"
+                            style="color: #FF6B8B;"></i> for nature lovers
+                    </p>
+                </div>
             </div>
         </div>
+    </footer>
 
-        <div class="row" r3>
-            <div class="col-md-4 my-2">
-                <img width="80%" height="80%" src="https://images.unsplash.com/photo-1620766165457-a8025baa82e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bmF0dXJlJTIwb2YlMjBpbmRpYXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80">
-            </div>
-
-            <div class="col-md-4 my-2">   
-                 <img width="80%" height="80%" src="https://i.pinimg.com/originals/4d/62/a3/4d62a3fa2f4750685955a497a2ff03e5.jpg">
-            </div>
-
-            <div class="col-md-4 my-2">
-                <img width="80%" height="80%" src="https://i.pinimg.com/originals/6b/cc/cc/6bccccb4750ea5135e8ce1ab886f976f.jpg">
-            </div>
-        </div>
-
-        <div class="row" r3>
-            <div class="col-md-4 my-2">
-                <img width="80%" height="80%" src="https://images.unsplash.com/photo-1565786423298-4bdca4334241?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29sb3JmdWwlMjBuYXR1cmV8ZW58MHx8MHx8fDA%3D&w=1000&q=80">
-            </div>
-
-            <div class="col-md-4 my-2">   
-                 <img width="80%" height="80%" src="https://cdn.wallpapersafari.com/39/39/90lObj.jpg">
-            </div>
-
-            <div class="col-md-4 my-2">
-                <img width="80%" height="80%" src="https://images.unsplash.com/photo-1420593248178-d88870618ca0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3ByaW5nJTIwbmF0dXJlfGVufDB8fDB8fHww&w=1000&q=80">
+    <!-- Image Modal -->
+    <div class="modal fade" id="imageModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">Nature Image</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="" alt="" class="modal-img" id="modalImage"
+                        style="width: 100%; height: auto; border-radius: 10px;">
+                    <p class="mt-3" id="modalDescription"></p>
+                </div>
             </div>
         </div>
-
     </div>
 
-    <div class="container"> 
-    <iframe class="c" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15225.71291787925!2d78.43432062847937!3d17.43920620686302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb90c55bb43183%3A0x1abc135b23ee2703!2sAmeerpet%2C%20Hyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1697473903511!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"><h1 class="b">Contact Us</h1> </iframe>
+    <script>
+        // Gallery data
+        const galleryImages = [
+            {
+                url: "https://www.format.com/wp-content/uploads/symmetrical_clouds_reflection_in_water.jpg",
+                title: "Cloud Reflection",
+                description: "Symmetrical clouds perfectly reflected in calm water creating a mirror-like effect"
+            },
+            {
+                url: "https://images.unsplash.com/photo-1596550782892-01e5f0229ce7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGJlYXV0aWZ1bCUyMG5hdHVyZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80",
+                title: "Mountain Landscape",
+                description: "Majestic mountains under golden hour sunlight with dramatic shadows"
+            },
+            {
+                url: "https://images.unsplash.com/photo-1621157281974-e926449624e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bmF0dXJlJTIwZ3JlZW58ZW58MHx8MHx8fDA%3D&w=1000&q=80",
+                title: "Green Valley",
+                description: "Lush green valley with flowing river through untouched wilderness"
+            },
+            {
+                url: "https://images.unsplash.com/photo-1620766165457-a8025baa82e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bmF0dXJlJTIwb2YlMjBpbmRpYXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80",
+                title: "Indian Wilderness",
+                description: "Beautiful natural landscapes showcasing India's diverse ecosystems"
+            },
+            {
+                url: "https://i.pinimg.com/originals/4d/62/a3/4d62a3fa2f4750685955a497a2ff03e5.jpg",
+                title: "Autumn Forest",
+                description: "Colorful autumn leaves covering the forest floor in warm hues"
+            },
+            {
+                url: "https://i.pinimg.com/originals/6b/cc/cc/6bccccb4750ea5135e8ce1ab886f976f.jpg",
+                title: "Misty Mountains",
+                description: "Mysterious mist covering mountain peaks in early morning"
+            },
+            {
+                url: "https://images.unsplash.com/photo-1565786423298-4bdca4334241?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29sb3JmdWwlMjBuYXR1cmV8ZW58MHx8MHx8fDA%3D&w=1000&q=80",
+                title: "Colorful Nature",
+                description: "Vibrant colors in natural settings creating visual harmony"
+            },
+            {
+                url: "https://cdn.wallpapersafari.com/39/39/90lObj.jpg",
+                title: "Wildflower Meadow",
+                description: "Beautiful wildflowers in full bloom across vast meadows"
+            },
+            {
+                url: "https://images.unsplash.com/photo-1420593248178-d88870618ca0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3ByaW5nJTIwbmF0dXJlfGVufDB8fDB8fHww&w=1000&q=80",
+                title: "Spring Blossoms",
+                description: "Fresh spring blossoms signaling new life and renewal"
+            }
+        ];
 
-    <h1 class="b">Contact Us</h1>
-    <form class="form mt-5">
-        <label>Enter First Name:</label> <br>
-        <input type="text" class="form-control w-auto" value="" placeholder="First Name:"> <br>
+        // Theme Management
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = document.getElementById('themeIcon');
 
-        <label>Enter Last Name:</label> <br>
-        <input type="text" class="form-control w-auto" value="" placeholder="Last Name:"> <br> 
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-theme');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                document.body.classList.remove('dark-theme');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
 
-        <label>Enter Your Mobile No:</label> <br>
-         <input type="number" class="form-control w-auto" value="" placeholder="Mobile No:"> <br>
+            // Theme toggle functionality
+            themeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark-theme');
 
-        <label>Enter Email ID:</label> <br>
-        <input type="email" class="form-control w-auto" value="" placeholder="Email ID:">
-        <div class="d-flex flex-wrap m-3 ">
+                if (document.body.classList.contains('dark-theme')) {
+                    localStorage.setItem('theme', 'dark');
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                } else {
+                    localStorage.setItem('theme', 'light');
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                }
+            });
+        }
 
-            <button class="btn btn-outline-primary mr-1">Submit</button> 
-            <button class="btn btn-outline-primary " >Reset</button>
-        </div>
-    </form>
-</div>
+        // Initialize Gallery
+        function initializeGallery() {
+            const galleryGrid = document.getElementById('galleryGrid');
+
+            galleryImages.forEach((image, index) => {
+                const delayClass = `stagger-delay-${(index % 5) + 1}`;
+
+                const col = document.createElement('div');
+                col.className = `col-md-4 col-sm-6 mb-4 fade-in-up ${delayClass}`;
+
+                col.innerHTML = `
+                    <div class="gallery-card h-100">
+                        <div class="gallery-img-container">
+                            <img src="${image.url}" alt="${image.title}" class="gallery-img">
+                            <div class="img-overlay">
+                                <div class="overlay-text">
+                                    <i class="fas fa-expand-arrows-alt"></i>
+                                    <p>View Full Size</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">${image.title}</h5>
+                            <p class="card-text">${image.description.substring(0, 80)}...</p>
+                            <button class="btn btn-sm btn-primary-custom" onclick="openImageModal(${index})">
+                                <i class="fas fa-eye mr-1"></i> View Details
+                            </button>
+                        </div>
+                    </div>
+                `;
+
+                galleryGrid.appendChild(col);
+            });
+        }
+
+        // Open Image Modal
+        function openImageModal(index) {
+            const image = galleryImages[index];
+            document.getElementById('modalImage').src = image.url;
+            document.getElementById('modalTitle').textContent = image.title;
+            document.getElementById('modalDescription').textContent = image.description;
+            $('#imageModal').modal('show');
+        }
+
+        // Smooth Scroll Function
+        function smoothScroll(target) {
+            const element = document.querySelector(target);
+            if (element) {
+                window.scrollTo({
+                    top: element.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Form Handling
+        document.addEventListener('DOMContentLoaded', function () {
+            initTheme();
+            initializeGallery();
+
+            const sendMessageBtn = document.querySelector('.btn-primary-custom');
+            const clearFormBtn = document.querySelector('.btn-secondary-custom');
+
+            // Send Message button handler
+            sendMessageBtn.addEventListener('click', function () {
+                const fastName = document.getElementById('fastName').value;
+                const lastName = document.getElementById('lastName').value;
+                const mobileNumber = document.getElementById('mobileNumber').value;
+                const sendAddress = document.getElementById('sendAddress').value;
+                const yourMessage = document.getElementById('yourMessage').value;
+
+                // Simple validation
+                if (!fastName || !lastName || !mobileNumber || !sendAddress) {
+                    alert('Please fill in all required fields.');
+                    return;
+                }
+
+                // Show loading state
+                const originalText = this.innerHTML;
+                this.innerHTML = '<span class="loading-spinner"></span> Sending...';
+                this.disabled = true;
+
+                // Simulate sending
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                    this.disabled = false;
+                    alert('Thank you! Your message has been sent successfully.');
+
+                    // Clear form
+                    document.getElementById('fastName').value = '';
+                    document.getElementById('lastName').value = '';
+                    document.getElementById('mobileNumber').value = '';
+                    document.getElementById('sendAddress').value = '';
+                    document.getElementById('yourMessage').value = '';
+                }, 1500);
+            });
+
+            // Clear Form button handler
+            clearFormBtn.addEventListener('click', function () {
+                document.getElementById('fastName').value = '';
+                document.getElementById('lastName').value = '';
+                document.getElementById('mobileNumber').value = '';
+                document.getElementById('sendAddress').value = '';
+                document.getElementById('yourMessage').value = '';
+            });
+
+            // Smooth scrolling for nav links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href !== '#') {
+                        e.preventDefault();
+                        smoothScroll(href);
+                    }
+                });
+            });
+
+            // Mobile menu close on click
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth < 992) {
+                        $('.navbar-collapse').collapse('hide');
+                    }
+                });
+            });
+
+            // Add intersection observer for animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in-up');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            // Observe elements for animation
+            document.querySelectorAll('.fade-in-up').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
 </body>
+
 </html>
